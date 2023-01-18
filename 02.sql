@@ -134,7 +134,7 @@ where salary >= 5000 or job_id like '%IT%';
 select last_name, salary, department_id
 from employees
 where (salary between 5000 and 12000) and 
-    department_id in (20, 50);
+      department_id in (20, 50);
  
  -- 과제: 이름에 a와 e가 포함된 사원들의 이름을 조회하라.
  select last_name
