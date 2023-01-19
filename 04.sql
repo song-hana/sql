@@ -213,8 +213,8 @@ from employees;
 
 select last_name, salary,
     case when salary < 5000 then 'low'
-        when salary < 1000 then 'medium'
-        when salary < 2000 then 'high'
+        when salary < 10000 then 'medium'
+        when salary < 20000 then 'high'
         else 'good'
     end grade
 from employees;
@@ -248,6 +248,14 @@ order by case day
 -- 과제: 2005년 이전에 입사한 사원들에게 100만원 상품권,
 --       2005년 후에 입사한 사원들에게 10만원 상품권을 지급한다.
 --       사원들의 이름, 입사일, 상품권 금액을 조회하라.
+/* 오답 ㅠ
 select last_name, hire_date, 
-        case hire_date  when to_number(to_char(hire_date) - '2005/12/31') then 10
+        case when hire_date <= 2005/12/31 then 100
+            else 10 end gift
 from employees;
+*/
+select last_name, hire_date,
+       case when hire_date <= '2005/12/31' then '100만원'
+            else '10만원' end gift
+from employees
+order by gift, hire_date;
